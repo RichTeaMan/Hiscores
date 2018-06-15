@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PolytrisHiScore.Models;
 
 namespace PolytrisHiScore.Controllers
@@ -11,7 +13,7 @@ namespace PolytrisHiScore.Controllers
     public class ScoreController : Controller
     {
 
-        private static List<Score> Score = new List<Score>();
+        public static ConcurrentBag<Score> Scores { get; private set; } = new ConcurrentBag<Score>();
 
         // POST api/values
         [HttpPost]
@@ -44,16 +46,19 @@ namespace PolytrisHiScore.Controllers
                 Blocks = blocksInt
             };
 
-            System.IO.File.AppendAllLines(@"C:\Users\thoma\Desktop\scores.txt", new[] { score.ToString() });
+            System.IO.File.AppendAllLines(Constants.ScoreLogFilePath, new[] { score.ToString() });
 
-            Score.Add(score);
+            Scores.Add(score);
+
+            var scoreJson = JsonConvert.SerializeObject(Scores);
+            System.IO.File.WriteAllText(Constants.ScoreJsonFilePath, scoreJson);
 
             return score;
         }
 
         public Score[] Get()
         {
-            return Score.OrderByDescending(s => s.Points).ToArray();
+            return Scores.OrderByDescending(s => s.Points).ToArray();
         }
     }
 }

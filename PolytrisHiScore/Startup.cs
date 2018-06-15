@@ -36,13 +36,6 @@ namespace PolytrisHiScore
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), "Polytris")),
-                RequestPath = "/Polytris"
-            });
-
             app.UseMvc();
         }
     }
