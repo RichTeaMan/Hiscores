@@ -8,7 +8,5 @@ namespace PolytrisHiScore
     public class Constants
     {
         public const string ScoreJsonFilePath = @"C:\inetpub\wwwroot\Scores\scores.json";
-
-        public const string ScoreLogFilePath = @"C:\inetpub\wwwroot\Scores\scores.txt";
     }
 }

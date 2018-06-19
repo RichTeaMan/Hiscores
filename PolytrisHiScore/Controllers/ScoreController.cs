@@ -13,6 +13,8 @@ namespace PolytrisHiScore.Controllers
     public class ScoreController : Controller
     {
 
+        public static string JsonPath = Constants.ScoreJsonFilePath;
+
         public static ConcurrentBag<Score> Scores { get; private set; } = new ConcurrentBag<Score>();
 
         // POST api/values
@@ -45,8 +47,6 @@ namespace PolytrisHiScore.Controllers
                 Points = pointsInt,
                 Blocks = blocksInt
             };
-
-            System.IO.File.AppendAllLines(Constants.ScoreLogFilePath, new[] { score.ToString() });
 
             Scores.Add(score);
 

@@ -18,6 +18,7 @@
     },
     "PolytrisHiScore": {
       "commandName": "Project",
+      "commandLineArgs": "-- ‪C:/Users/thoma/Desktop/scores_test.json",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {

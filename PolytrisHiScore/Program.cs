@@ -16,6 +16,12 @@ namespace PolytrisHiScore
     {
         public static void Main(string[] args)
         {
+            if (args.Length > 1)
+            {
+                Controllers.ScoreController.JsonPath = args[1];
+            }
+            Console.WriteLine($"Using JSON from '{Controllers.ScoreController.JsonPath}'.");
+
             BuildWebHost(args).Run();
         }
 
