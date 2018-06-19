@@ -27,9 +27,9 @@ namespace PolytrisHiScore
 
         public static IWebHost BuildWebHost(string[] args)
         {
-            if (File.Exists(Constants.ScoreJsonFilePath))
+            if (File.Exists(Controllers.ScoreController.JsonPath))
             {
-                var scoreJson = File.ReadAllText(Constants.ScoreJsonFilePath);
+                var scoreJson = File.ReadAllText(Controllers.ScoreController.JsonPath);
                 JsonConvert.DeserializeObject<List<Score>>(scoreJson).ForEach(s => Controllers.ScoreController.Scores.Add(s));
             }
 
