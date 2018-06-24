@@ -13,7 +13,7 @@ namespace PolytrisHiScore.Controllers
 
         public string Get()
         {
-            return "hello world";
+            return "hello world v1";
         }
     }
 }

@@ -42,7 +42,7 @@ namespace PolytrisHiScore.Controllers
 
             var score = new Score()
             {
-                Name = name,
+                Name = name.Substring(0, Math.Min(name.Length, 20)),
                 Lines = linesInt,
                 Points = pointsInt,
                 Blocks = blocksInt
