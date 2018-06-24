@@ -18,9 +18,9 @@
     },
     "PolytrisHiScore": {
       "commandName": "Project",
-      "commandLineArgs": "-- ‪C:/Users/thoma/Desktop/scores_test.json",
+      "commandLineArgs": "-- C:/Users/thoma/Desktop/scores.json",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "api/score",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

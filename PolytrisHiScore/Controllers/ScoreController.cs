@@ -56,9 +56,21 @@ namespace PolytrisHiScore.Controllers
             return score;
         }
 
+        [HttpGet]
         public Score[] Get()
         {
             return Scores.OrderByDescending(s => s.Points).ToArray();
+        }
+
+        [HttpGet("uniqueName")]
+        public Score[] ByUniqueName()
+        {
+
+            return Scores.GroupBy(s => s.Name)
+                .Select(g => g.OrderByDescending(s => s.Points).First())
+                .OrderByDescending(s => s.Points)
+                .ToArray();
+
         }
     }
 }
