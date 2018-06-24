@@ -50,7 +50,7 @@ namespace PolytrisHiScore.Controllers
 
             Scores.Add(score);
 
-            var scoreJson = JsonConvert.SerializeObject(Scores);
+            var scoreJson = JsonConvert.SerializeObject(Scores, Formatting.Indented);
             System.IO.File.WriteAllText(JsonPath, scoreJson);
 
             return score;
