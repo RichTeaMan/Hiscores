@@ -45,7 +45,9 @@ namespace PolytrisHiScore.Controllers
                 Name = name.Substring(0, Math.Min(name.Length, 20)),
                 Lines = linesInt,
                 Points = pointsInt,
-                Blocks = blocksInt
+                Blocks = blocksInt,
+                PostedOn = DateTime.Now,
+                IpAddress = this.Request.HttpContext.Connection.RemoteIpAddress.ToString()
             };
 
             Scores.Add(score);
