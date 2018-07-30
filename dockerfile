@@ -9,4 +9,4 @@ RUN dotnet restore /PolytrisHiScore/PolytrisHiScore/PolytrisHiScore.csproj
 RUN dotnet publish /PolytrisHiScore/PolytrisHiScore/PolytrisHiScore.csproj --configuration Release
 WORKDIR /PolytrisHiScore/PolytrisHiScore/bin/Release/netcoreapp2.0
 EXPOSE 80
-ENTRYPOINT ["dotnet", "PolytrisHiScore.dll", "/var/hiscore/scores.json"]
+ENTRYPOINT ["dotnet", "PolytrisHiScore.dll", "--", "/var/hiscore/scores.json"]
